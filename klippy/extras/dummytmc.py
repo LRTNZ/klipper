@@ -273,14 +273,14 @@ class TMCCommandHelper:
         self.printer.get_reactor().register_callback(cb)
     def _handle_connect(self):
         # Check for soft stepper enable/disable
-        stepper_enable = self.printer.lookup_object('stepper_enable')
-        enable_line = stepper_enable.lookup_enable(self.stepper_name)
-        enable_line.register_state_callback(self.handle_stepper_enable)
-        if not enable_line.has_dedicated_enable():
-            self.toff = self.fields.get_field("toff")
-            self.fields.set_field("toff", 0)
-            logging.info("Enabling TMC virtual enable for '%s'",
-                         self.stepper_name)
+        #stepper_enable = self.printer.lookup_object('stepper_enable')
+        #enable_line = stepper_enable.lookup_enable(self.stepper_name)
+        #enable_line.register_state_callback(self.handle_stepper_enable)
+        #if not enable_line.has_dedicated_enable():
+         #   self.toff = self.fields.get_field("toff")
+          #  self.fields.set_field("toff", 0)
+           # logging.info("Enabling TMC virtual enable for '%s'",
+            #             self.stepper_name)
         # Send init
         try:
             self._init_registers()
